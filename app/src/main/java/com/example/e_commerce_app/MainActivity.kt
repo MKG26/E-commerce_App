@@ -7,6 +7,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -18,8 +19,10 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -52,8 +55,22 @@ fun frontPage( modifier: Modifier = Modifier) {
         Image(
             painter = painterResource(id = R.drawable.undraw_shopping_app_flsj__1_),
             contentDescription = null,
+            modifier = Modifier
+                .padding(top = 200.dp)
+                .size(200.dp)
+                .align(Alignment.CenterHorizontally)
 
         )
+
+        Text(
+            text = "Eco Mart",
+            fontSize = 30.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(top = 20.dp)
+        )
+
     }
 }
 
