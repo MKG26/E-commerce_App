@@ -84,13 +84,13 @@ fun frontPage( modifier: Modifier = Modifier) {
 
         Canvas(modifier = Modifier) {
             translate(left = -630f, top = 360f,) {
-                drawCircle(Color.Cyan, radius = 100.dp.toPx(), alpha = 0.3f)
+                drawCircle(color = Color(0xFFCEE8F7), radius = 100.dp.toPx())
             }
         }
 
         Canvas(modifier = Modifier) {
             translate(left = -370f, top = 60f,) {
-                drawCircle(Color.Cyan, radius = 100.dp.toPx(),alpha= 0.3f)
+                drawCircle(color = Color(0xFF8DD4FC), radius = 100.dp.toPx(),alpha = 0.8f)
             }
         }
 
@@ -106,13 +106,12 @@ fun frontPage( modifier: Modifier = Modifier) {
 
         Text(
             text = stringResource(id = R.string.app),
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.displayLarge,
             modifier = Modifier
                 .padding(top = 20.dp)
         )
         
-        Spacer(modifier = Modifier.padding(20.dp))
+        Spacer(modifier = Modifier.padding(13.dp))
 
 
         CustomTextField(
@@ -129,17 +128,15 @@ fun frontPage( modifier: Modifier = Modifier) {
         )
 
 
-        Spacer(modifier = Modifier.padding(17.dp))
+        Spacer(modifier = Modifier.padding(15.dp))
 
 
 
         Text(
             text = stringResource(id = R.string.lohinVia),
-            fontWeight = FontWeight.Bold,
-            fontSize = 25.sp
+            style = MaterialTheme.typography.displayMedium
         )
 
-        Spacer(modifier = Modifier.padding(5.dp))
 
         Row(
             modifier = Modifier
@@ -174,13 +171,13 @@ fun frontPage( modifier: Modifier = Modifier) {
 
         }
 
-        Spacer(modifier = Modifier.padding(30.dp))
+        Spacer(modifier = Modifier.padding(24.dp))
 
         Button(
             onClick = { /*TODO*/ },
             modifier = Modifier
                 .width(300.dp)
-                .height(45.dp)
+                .height(53.dp)
 
 
 
@@ -189,6 +186,7 @@ fun frontPage( modifier: Modifier = Modifier) {
 
             Text(
                 text = stringResource(id = R.string.login),
+                style = MaterialTheme.typography.displaySmall
 
 
             )
@@ -196,8 +194,12 @@ fun frontPage( modifier: Modifier = Modifier) {
 
         }
 
+        Spacer(modifier = Modifier.padding(5.dp))
+
         Text(
-            text = stringResource(id = R.string.signUp)
+            text = stringResource(id = R.string.signUp),
+            style = MaterialTheme.typography.bodySmall
+
         )
 
 
