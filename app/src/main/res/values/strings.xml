@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">E-commerce_App</string>
+    <string name="app">Eco Mart</string>
+    <string name="login">Login</string>
+    <string name="mobile">Mobile No./Email</string>
+    <string name="lohinVia">Login Via</string>
+    <string name="signUp">New to Karto? Sign Up</string>
 </resources>
