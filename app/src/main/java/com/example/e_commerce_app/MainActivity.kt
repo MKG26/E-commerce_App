@@ -228,14 +228,5 @@ fun frontPage( modifier: Modifier = Modifier) {
                 .width(320.dp)
 
         )
-    
-          
-
-
-
-
-
-
-
-}
+ }
 
