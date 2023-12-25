@@ -48,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.e_commerce_app.ui.frontPage
 import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
+import com.example.e_commerce_app.ui.thirdLayer
 import java.util.Stack
 
 class MainActivity : ComponentActivity() {
@@ -60,7 +61,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    frontPage()
+                    thirdLayer()
                 }
             }
         }
