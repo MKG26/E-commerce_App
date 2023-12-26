@@ -1,10 +1,8 @@
 package com.example.e_commerce_app.ui
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +13,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -40,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import com.example.e_commerce_app.R
 import com.example.e_commerce_app.data.DataSource
 import com.example.e_commerce_app.model.Grid
+import com.example.e_commerce_app.model.Gridtwo
 
 @Composable
 fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.compose.viewModel(),){
@@ -82,10 +80,49 @@ fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.com
                     )
             }
 
+            Box(
+                modifier = Modifier
+                    .padding(top= 0.dp)
+            ) {
+                GridtwoList(gridList = DataSource().loadGridstwo())
+            }
+
 
 
         }
 
+    }
+}
+
+
+@Composable
+fun GridtwoList(gridList: List<Gridtwo> , modifier: Modifier=Modifier){
+    
+    LazyHorizontalGrid(
+        rows = GridCells.Fixed(1)
+        , 
+         ){
+        items(gridList){grid ->
+            
+            GridtwoCard(grid = grid)
+        }
+        
+    }
+}
+
+
+@Composable
+fun GridtwoCard(grid: Gridtwo, modifier: Modifier=Modifier){
+
+    Column {
+        Image(
+            painter = painterResource(id = grid.imageResourceId),
+            contentDescription = null,
+            modifier = Modifier
+                .height(280.dp)
+                .width(400.dp)
+
+        )
     }
 }
 
@@ -94,7 +131,7 @@ fun GridList(gridList: List<Grid>, modifier: Modifier = Modifier){
 
     LazyHorizontalGrid(
         rows = GridCells.Fixed(1),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(5.dp),
         modifier = Modifier
             .height(110.dp)
             .padding(top = 10.dp)

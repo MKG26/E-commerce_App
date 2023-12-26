@@ -2,6 +2,7 @@ package com.example.e_commerce_app.data
 
 import com.example.e_commerce_app.R
 import com.example.e_commerce_app.model.Grid
+import com.example.e_commerce_app.model.Gridtwo
 
 class DataSource() {
 
@@ -12,6 +13,14 @@ class DataSource() {
             Grid(R.string.grid3,R.drawable.grid3),
             Grid(R.string.grid4,R.drawable.grid4),
             Grid(R.string.grid5,R.drawable.grid5)
+        )
+    }
+
+
+    fun loadGridstwo(): List<Gridtwo>{
+        return listOf<Gridtwo>(
+            Gridtwo(R.drawable.eco),
+            Gridtwo(R.drawable.eco2)
         )
     }
 }
