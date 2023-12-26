@@ -5,4 +5,11 @@
     <string name="mobile">Mobile No./Email</string>
     <string name="lohinVia">Login Via</string>
     <string name="signUp">New to Karto? Sign Up</string>
+    <string name="search">Search</string>
+
+    <string name="grid1">Clothes</string>
+    <string name="grid2">Detergent</string>
+    <string name="grid3">Bamboo\nProducts</string>
+    <string name="grid4">Shoes</string>
+    <string name="grid5">Eco-Friendly\nBottles</string>
 </resources>
