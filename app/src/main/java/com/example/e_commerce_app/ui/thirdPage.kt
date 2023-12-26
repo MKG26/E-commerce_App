@@ -1,12 +1,13 @@
 package com.example.e_commerce_app.ui
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -14,6 +15,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -22,7 +25,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -75,7 +77,6 @@ fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.com
                 GridList(
                     gridList = DataSource().loadGrids(),
                     modifier = Modifier
-                        .padding(top = 30.dp)
 
                     )
             }
@@ -94,7 +95,8 @@ fun GridList(gridList: List<Grid>, modifier: Modifier = Modifier){
         rows = GridCells.Fixed(1),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         modifier = Modifier
-            .height(100.dp)
+            .height(110.dp)
+            .padding(top = 10.dp)
     ){
         items(gridList){ grid ->
 
@@ -114,7 +116,7 @@ fun GridCard(grid: Grid, modifier: Modifier = Modifier){
     Card(modifier = modifier
         .width(80.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = Color(0xFF8DD4FC)
         )
 
         ) {
@@ -127,9 +129,18 @@ fun GridCard(grid: Grid, modifier: Modifier = Modifier){
                 painter = painterResource(id = grid.imageResourceId),
                 contentDescription = stringResource(id = grid.stringResourceId),
                 modifier = Modifier
-                    .size(80.dp)
-                    .padding(start = 10.dp, end = 10.dp)
+                    .size(70.dp)
+                    .background(Color.White, shape = RoundedCornerShape(20.dp))
+
+                    .padding(8.dp)
+
+
+
+
             )
+
+
+
 
             Text(
                 text = stringResource(id = grid.stringResourceId),
