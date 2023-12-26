@@ -73,6 +73,7 @@ fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.com
                 modifier = Modifier
                     .height(110.dp)
                     .background(Color(0xFF8DD4FC))
+                    .padding(start = 10.dp)
             ) {
                 GridList(
                     gridList = DataSource().loadGrids(),
