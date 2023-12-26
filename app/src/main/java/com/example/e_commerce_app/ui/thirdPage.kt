@@ -26,6 +26,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -43,6 +44,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -70,27 +72,24 @@ fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.com
 
             Box(
                 modifier = Modifier
-                    .background(Color(0xFF8DD4FC))
-                    .width(420.dp)
-                    .height(56.dp)
+                    .background(color = Color(0xFF8DD4FC))
+
             ) {
+                customTextField(
+                    value = amountInput,
 
-
-
-                    customTextField(
-                        value = amountInput,
-
-                        onValueChange = {amountInput -> it})
-
-
+                    onValueChange = { amountInput = it })
             }
+
+
+
 
 
             Box(
                 modifier = Modifier
-                    .height(110.dp)
+                    .height(120.dp)
                     .background(Color(0xFF8DD4FC))
-                    .padding(start = 10.dp)
+                    .padding(start = 10.dp,top = 5.dp)
             ) {
                 GridList(
                     gridList = DataSource().loadGrids(),
@@ -219,58 +218,71 @@ fun customTextField(
 ) {
 
 
+    BasicTextField(
+        value = value,
+        onValueChange = onValueChange,
+
+        textStyle = TextStyle(
+            fontSize = 20.sp
+        ),
+
+        decorationBox = { innerTextField ->
+
+            Box(
+
+                modifier = Modifier
+                    .padding(horizontal = 22.dp)
+                    .fillMaxWidth()
+                    .background(color = Color.White, shape = RoundedCornerShape(size = 30.dp))
+                    .padding(horizontal = 16.dp, vertical = 15.dp),
+
+
+            ){
+
+
+                Row(
+                    modifier = Modifier,
+
+                    verticalAlignment = Alignment.CenterVertically
+
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = null,
+                        tint = Color.DarkGray,
+                            modifier = Modifier
+                                .padding(end = 5.dp)
+                    )
+
+                    innerTextField()
+
+                }
+
+                if (value.isEmpty()) {
+                    Text(
+                        text = "Search",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Normal,
+                        color = Color.LightGray,
+
+                        modifier = Modifier
+                            .padding(start = 30.dp)
+                    )
+                }
 
 
 
-        BasicTextField(
-            cursorBrush = Brush.verticalGradient(colors = listOf(Color.Black, Color.Black)) ,
-            value = value,
-            onValueChange = onValueChange,
-
-
-                    decorationBox = { innerTextField ->
-                        Box {
-                            Row(
-                                modifier = Modifier
-                                    .padding(horizontal = 24.dp) // margin left and right
-                                    .fillMaxWidth()
-                                    .background(
-                                        color = Color.White,
-                                        shape = RoundedCornerShape(size = 30.dp)
-                                    )
-
-                                    .padding(all = 16.dp), // inner padding
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Search,
-                                    contentDescription = "Favorite icon",
-                                    tint = Color.DarkGray,
-
-                                    modifier = Modifier
-                                        .padding(start = 7.dp),
-
-
-                                    )
-
-                                if (value.isEmpty()) {
-                                    Text(
-                                        text = "Search",
-                                        fontSize = 18.sp,
-                                        fontWeight = FontWeight.Normal,
-                                        color = Color.LightGray
-                                    )
-                                }
-
-
-                            }
-                        }
 
 
 
             }
+
+        }
+
+
         )
 
+}
 
 
 
@@ -279,7 +291,8 @@ fun customTextField(
 
 
 
-    }
+
+
 
 
 
