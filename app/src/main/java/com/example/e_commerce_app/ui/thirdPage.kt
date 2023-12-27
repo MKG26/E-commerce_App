@@ -89,7 +89,7 @@ fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.com
                 modifier = Modifier
                     .height(120.dp)
                     .background(Color(0xFF8DD4FC))
-                    .padding(start = 10.dp,top = 5.dp)
+                    .padding(start = 10.dp, top = 5.dp)
             ) {
                 GridList(
                     gridList = DataSource().loadGrids(),
@@ -101,11 +101,20 @@ fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.com
             Box(
                 modifier = Modifier
                     .padding(top= 0.dp)
+                    .height(300.dp)
             ) {
                 GridtwoList(gridList = DataSource().loadGridstwo())
             }
 
 
+
+            Text(
+                text = stringResource(id = R.string.deal),
+                style = MaterialTheme.typography.displayMedium,
+                modifier = Modifier
+                    .padding(start = 5.dp)
+
+            )
 
         }
 
@@ -138,7 +147,7 @@ fun GridtwoCard(grid: Gridtwo, modifier: Modifier=Modifier){
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .height(280.dp)
+                .height(290.dp)
                 .width(400.dp)
 
         )
@@ -171,7 +180,8 @@ fun GridList(gridList: List<Grid>, modifier: Modifier = Modifier){
 fun GridCard(grid: Grid, modifier: Modifier = Modifier){
 
     Card(modifier = modifier
-        .width(80.dp),
+        .width(80.dp)
+        ,
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFF8DD4FC)
         )
@@ -197,6 +207,7 @@ fun GridCard(grid: Grid, modifier: Modifier = Modifier){
             )
 
 
+                Spacer(modifier = Modifier.padding(2.dp))
 
 
             Text(
