@@ -1,18 +1,12 @@
 <resources>
-    <string name="app_name">E-commerce_App</string>
-    <string name="app">Eco Mart</string>
-    <string name="login">Login</string>
-    <string name="mobile">Mobile No./Email</string>
-    <string name="lohinVia">Login Via</string>
-    <string name="signUp">New to Karto? Sign Up</string>
-    <string name="search">Search</string>
 
-    <string name="grid1">Clothes</string>
-    <string name="grid2">Detergent</string>
-    <string name="grid3">B-Items</string>
-    <string name="grid4">Shoes</string>
-    <string name="grid5">Bottles</string>
-    <string name="loda">loda</string>
+    <string name="app_name">Karto Mart</string>
+    <string name="signUpButton">Sign Up</string>
+    <string name="create_account">Create Account</string>
+    <string name="mobile_no">Mobile number</string>
+    <string name="user_name">First and Last name</string>
+    <string name="password">Password</string>
+    <string name="already_customer">Already a customer?</string>
+    <string name="sign_instead">Sign in instead</string>
 
-    <string name="deal">Deals for you</string>
 </resources>
