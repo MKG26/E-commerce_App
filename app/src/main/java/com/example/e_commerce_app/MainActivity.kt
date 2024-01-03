@@ -46,7 +46,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.e_commerce_app.ui.frontPage
 import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
 import java.util.Stack
 
@@ -66,4 +65,168 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+@Composable
+fun frontPage( modifier: Modifier = Modifier) {
+
+
+    var amountInput by remember {
+        mutableStateOf("")
+    }
+
+
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally
+
+    ) {
+
+
+        Canvas(modifier = Modifier) {
+            translate(left = -630f, top = 360f,) {
+                drawCircle(color = Color(0xFFCEE8F7), radius = 100.dp.toPx())
+            }
+        }
+
+        Canvas(modifier = Modifier) {
+            translate(left = -370f, top = 60f,) {
+                drawCircle(color = Color(0xFF8DD4FC), radius = 100.dp.toPx(),alpha = 0.8f)
+            }
+        }
+
+
+        Image(
+            painter = painterResource(id = R.drawable.undraw_shopping_app_flsj__1_),
+            contentDescription = null,
+            modifier = Modifier
+                .padding(top = 200.dp)
+                .size(200.dp)
+
+        )
+
+        Text(
+            text = stringResource(id = R.string.app),
+            style = MaterialTheme.typography.displayLarge,
+            modifier = Modifier
+                .padding(top = 20.dp)
+        )
+        
+        Spacer(modifier = Modifier.padding(13.dp))
+
+
+        CustomTextField(
+            value = amountInput,
+            onValueChange = {amountInput = it},
+            modifier = Modifier
+                ,
+
+
+
+            label = R.string.mobile
+
+
+        )
+
+
+        Spacer(modifier = Modifier.padding(15.dp))
+
+
+
+        Text(
+            text = stringResource(id = R.string.lohinVia),
+            style = MaterialTheme.typography.displayMedium
+        )
+
+
+        Row(
+            modifier = Modifier
+
+
+        ) {
+            Image(
+                modifier = Modifier
+                    .size(31.dp)
+                    .padding()
+                    ,
+                painter = painterResource(id = R.drawable.transparent_google_suite_icon_google_icon_5f7f985ccd60e3_5687494416021975968412),
+                contentDescription = null
+            )
+
+            Image(
+                modifier = Modifier
+                    .size(32.dp)
+                    .padding(start = 5.dp),
+                painter = painterResource(id = R.drawable._021_facebook_icon_svg),
+                contentDescription = null
+            )
+
+            Image(
+                modifier = Modifier
+                    .size(33.dp)
+                    .padding(start = 5.dp),
+                painter = painterResource(id = R.drawable.pngtree_email_icon_png_image_5065641),
+                contentDescription = null
+            )
+
+
+        }
+
+        Spacer(modifier = Modifier.padding(24.dp))
+
+        Button(
+            onClick = { /*TODO*/ },
+            modifier = Modifier
+                .width(300.dp)
+                .height(53.dp)
+
+
+
+
+        ) {
+
+            Text(
+                text = stringResource(id = R.string.login),
+                style = MaterialTheme.typography.displaySmall
+
+
+            )
+
+
+        }
+
+        Spacer(modifier = Modifier.padding(5.dp))
+
+        Text(
+            text = stringResource(id = R.string.signUp),
+            style = MaterialTheme.typography.bodySmall
+
+        )
+
+
+
+    }
+
+
+
+}
+
+@Composable
+ fun CustomTextField(
+    value: String,
+    @StringRes label: Int,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+
+
+    
+        OutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            label = { Text(text = stringResource(id = label))},
+            modifier = Modifier
+                .width(320.dp)
+
+        )
+ }
 
