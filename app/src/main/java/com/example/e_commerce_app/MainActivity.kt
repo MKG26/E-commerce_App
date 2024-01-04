@@ -46,6 +46,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.view.WindowCompat
+import androidx.navigation.compose.rememberNavController
 import com.example.e_commerce_app.ui.frontPage
 import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
 import java.util.Stack
@@ -60,7 +62,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    EcoApp()
+                    val navController = rememberNavController()
+                    EcoApp(navController = navController)
                 }
             }
         }

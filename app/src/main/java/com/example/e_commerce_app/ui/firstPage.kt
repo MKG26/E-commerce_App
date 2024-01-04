@@ -29,7 +29,11 @@ import androidx.compose.ui.unit.dp
 import com.example.e_commerce_app.R
 
 @Composable
-fun frontPage( modifier: Modifier = Modifier) {
+fun frontPage(
+    onNextButtonClicked: () -> Unit,
+    modifier: Modifier = Modifier,
+
+) {
 
 
     var amountInput by remember {
@@ -136,7 +140,7 @@ fun frontPage( modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.padding(24.dp))
 
         Button(
-            onClick = { /*TODO*/ },
+            onClick = onNextButtonClicked ,
             modifier = Modifier
                 .width(300.dp)
                 .height(53.dp)

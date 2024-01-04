@@ -4,4 +4,11 @@ import androidx.lifecycle.ViewModel
 
 class E_commerceViewModel: ViewModel() {
 
+
+
+
+
+
+
+
 }

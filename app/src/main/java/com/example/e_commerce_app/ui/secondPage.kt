@@ -32,7 +32,10 @@ import androidx.compose.ui.unit.sp
 import com.example.e_commerce_app.R
 
 @Composable
-fun SecondPage(modifier : Modifier = Modifier) {
+fun SecondPage(
+    onNextButtonClicked: () -> Unit,
+    modifier : Modifier = Modifier
+) {
 
 
 
@@ -77,7 +80,7 @@ fun SecondPage(modifier : Modifier = Modifier) {
 
 
         Button(
-            onClick = { },
+            onClick = onNextButtonClicked ,
             modifier = Modifier
                 .padding(
                     dimensionResource(id = R.dimen.padding_medium),
