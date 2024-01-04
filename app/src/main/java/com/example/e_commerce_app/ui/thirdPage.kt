@@ -51,7 +51,7 @@ import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
 import javax.sql.DataSource
 
 @Composable
-fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.compose.viewModel(),){
+fun thirdLayer(){
 
     var amountInput by remember {
         mutableStateOf("")
@@ -89,7 +89,7 @@ fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.com
                     .padding(start = 10.dp, top = 5.dp)
             ) {
                 GridList(
-                    gridList = DataSource().loadGrids(),
+                    gridList = com.example.e_commerce_app.data.DataSource().loadGrids(),
                     modifier = Modifier
 
                 )
@@ -100,7 +100,7 @@ fun thirdLayer(viewModel: E_commerceViewModel = androidx.lifecycle.viewmodel.com
                     .padding(top = 0.dp)
                     .height(300.dp)
             ) {
-                GridtwoList(gridList = DataSource().loadGridstwo())
+                GridtwoList(gridList = com.example.e_commerce_app.data.DataSource().loadGridstwo())
             }
 
 
