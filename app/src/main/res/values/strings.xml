@@ -8,4 +8,12 @@
 
     <string name="details">Enter Details</string>
     <string name="order">Order something</string>
+
+    <string name="signUpButton">Sign Up</string>
+    <string name="create_account">Create Account</string>
+    <string name="mobile_no">Mobile number</string>
+    <string name="user_name">First and Last name</string>
+    <string name="password">Password</string>
+    <string name="already_customer">Already a customer?</string>
+    <string name="sign_instead">Sign in instead</string>
 </resources>
