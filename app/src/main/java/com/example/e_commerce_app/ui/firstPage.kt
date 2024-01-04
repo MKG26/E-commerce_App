@@ -6,6 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -25,14 +26,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.e_commerce_app.R
+import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
 
 @Composable
 fun frontPage(
     onNextButtonClicked: () -> Unit,
-    modifier: Modifier = Modifier,
-
+    modifier: Modifier = Modifier
 ) {
 
 
@@ -42,7 +44,8 @@ fun frontPage(
 
 
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
@@ -140,7 +143,7 @@ fun frontPage(
         Spacer(modifier = Modifier.padding(24.dp))
 
         Button(
-            onClick = onNextButtonClicked ,
+            onClick = onNextButtonClicked,
             modifier = Modifier
                 .width(300.dp)
                 .height(53.dp)
@@ -194,4 +197,12 @@ fun CustomTextField(
             .width(320.dp)
 
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPrevie(){
+    Ecommerce_AppTheme {
+        frontPage(onNextButtonClicked = { /*TODO*/ })
+    }
 }
