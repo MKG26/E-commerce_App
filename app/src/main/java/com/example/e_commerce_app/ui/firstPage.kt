@@ -1,8 +1,10 @@
 package com.example.e_commerce_app.ui
 
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,6 +18,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,18 +27,35 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.e_commerce_app.R
+import com.example.e_commerce_app.presentation.sign_in.SignInState
 import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
 
 @Composable
 fun frontPage(
     onNextButtonClicked: () -> Unit,
+    state: SignInState,
+    onSignInClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+
+    val context = LocalContext.current
+    LaunchedEffect(key1 = state.signInError){
+        state.signInError?.let { error ->
+
+            Toast.makeText(
+                context,
+                error,
+                Toast.LENGTH_LONG
+            ).show()
+
+        }
+    }
 
 
     var amountInput by remember {
@@ -116,10 +136,13 @@ fun frontPage(
                 modifier = Modifier
                     .size(31.dp)
                     .padding()
+                    .clickable( onClick = onSignInClick)
                 ,
                 painter = painterResource(id = R.drawable.transparent_google_suite_icon_google_icon_5f7f985ccd60e3_5687494416021975968412),
-                contentDescription = null
+                contentDescription = null,
+
             )
+
 
             Image(
                 modifier = Modifier
@@ -203,6 +226,5 @@ fun CustomTextField(
 @Composable
 fun GreetingPrevie(){
     Ecommerce_AppTheme {
-        frontPage(onNextButtonClicked = { /*TODO*/ })
     }
 }
