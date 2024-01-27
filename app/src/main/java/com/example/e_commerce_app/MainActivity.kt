@@ -9,7 +9,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.e_commerce_app.presentation.sign_in.GoogleAuthUiClient
-import com.example.e_commerce_app.ui.fourthPage
 import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
 import com.google.android.gms.auth.api.identity.Identity
 
@@ -32,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    fourthPage()
+                    EcoApp(navController = navController)
                 }
             }
         }

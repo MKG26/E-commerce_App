@@ -18,6 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.e_commerce_app.presentation.sign_in.GoogleAuthUiClient
 import com.example.e_commerce_app.presentation.sign_in.SignInViewModel
 import com.example.e_commerce_app.ui.SecondPage
+import com.example.e_commerce_app.ui.fourthPage
 import com.example.e_commerce_app.ui.frontPage
 import com.example.e_commerce_app.ui.thirdLayer
 import kotlinx.coroutines.coroutineScope
@@ -26,7 +27,8 @@ import kotlinx.coroutines.coroutineScope
 enum class EcoScreen(@StringRes val title: Int){
     Start(R.string.app),
     SignUp(R.string.details),
-    Order(R.string.order)
+    Order(R.string.order),
+    Item(R.string.item)
 }
 
 
@@ -79,9 +81,17 @@ fun EcoApp(
 
             composable(route = EcoScreen.Order.name) {
 
-                thirdLayer()
+                thirdLayer(
+                    onNextButtonClicked = {
+                        navController.navigate(EcoScreen.Item.name)
+                    }
+                )
 
             }
+
+        composable(route = EcoScreen.Item.name){
+            fourthPage()
+        }
 
         }
     }

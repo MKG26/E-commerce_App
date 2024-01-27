@@ -2,6 +2,7 @@ package com.example.e_commerce_app.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -51,7 +52,9 @@ import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
 import javax.sql.DataSource
 
 @Composable
-fun thirdLayer(){
+fun thirdLayer(
+    onNextButtonClicked: () -> Unit,
+){
 
     var amountInput by remember {
         mutableStateOf("")
@@ -120,7 +123,7 @@ fun thirdLayer(){
                     .background(Color(0xFFDDF3F7))
             ){
 
-                GridThreeList()
+                GridThreeList(onNextButtonClicked = onNextButtonClicked)
 
             }
 
@@ -168,7 +171,8 @@ fun GridtwoCard(grid: Gridtwo, modifier: Modifier = Modifier){
 }
 
 @Composable
-fun GridThreeList( modifier: Modifier = Modifier){
+fun GridThreeList( modifier: Modifier = Modifier
+,onNextButtonClicked: () -> Unit){
 
     Column(
         modifier = modifier,
@@ -229,6 +233,9 @@ fun GridThreeList( modifier: Modifier = Modifier){
                     .width(130.dp)
                     .background(Color.White)
                     .padding(5.dp)
+                    .clickable (
+                        onClick = onNextButtonClicked
+                    )
 
 
             )
@@ -417,6 +424,8 @@ fun ecoTopBar(){
 @Composable
 fun GreetingPreview(){
     Ecommerce_AppTheme {
-        thirdLayer()
+            thirdLayer {
+
+            }
     }
 }
