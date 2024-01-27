@@ -211,20 +211,9 @@ fun fourthPage(
                     modifier = Modifier.padding(start = 75.dp)
 
                 )
-                
-
-
-
             }
-
-
-
-
-
         }
-
     }
-
 }
 
 
