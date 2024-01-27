@@ -6,6 +6,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.material3.Button
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,12 +15,22 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.ThumbUp
+import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Star
+import androidx.compose.material.icons.outlined.StarHalf
+import androidx.compose.material.icons.outlined.StarOutline
+import androidx.compose.material.icons.outlined.ThumbUp
+import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
@@ -55,6 +66,10 @@ fun fourthPage(
 ){
     var amountInput by remember {
         mutableStateOf("")
+    }
+
+    var rating_1 by remember {
+        mutableStateOf(4)
     }
 
     Scaffold{it
@@ -98,15 +113,14 @@ fun fourthPage(
                     
                     Spacer(modifier = Modifier.width(50.dp))
 
-                    Row{
-                        var num = 4
-                        while(num>0){
-                            Icon(
-                                imageVector = Icons.Filled.Star,
-                                contentDescription = null,
-                            )
-                            num--;
-                        }
+                    RatiingBar(
+                        modifier = Modifier
+                            .size(20.dp),
+                        rating = rating_1,
+                        starsColor = Color.Black
+
+                    ){
+                        rating_1 = it.toInt()
                     }
                 }
 
@@ -185,7 +199,7 @@ fun fourthPage(
                     text = stringResource(id = R.string.afterThank),
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 21.sp,
-//                    style = TextStyle(Color(0xFF7BD0FF))
+                    color = Color(0xFF2FB3FC)
                 )
 
 
@@ -193,7 +207,9 @@ fun fourthPage(
                     text = stringResource(id = R.string.afterThank2),
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 21.sp,
-                    modifier = Modifier.padding(start = 65.dp)
+                    color = Color(0xFF2FB3FC),
+                    modifier = Modifier.padding(start = 75.dp)
+
                 )
                 
 
@@ -210,6 +226,8 @@ fun fourthPage(
     }
 
 }
+
+
 
 @Composable
 fun customTextField1(
@@ -277,6 +295,36 @@ fun customTextField1(
 
     )
 
+}
+
+@Composable
+fun RatiingBar(
+    modifier : Modifier = Modifier,
+    rating: Int = 0,
+    stars: Int = 5,
+    starsColor: Color = Color.Black,
+    onRatingChange: (Double) -> Unit
+ ){
+
+
+    Row {
+        for (index in 1..stars){
+            Icon(
+                modifier = modifier.clickable {
+                      onRatingChange(index.toDouble() )
+                },
+                imageVector =  if(index <= rating){
+                       Icons.Default.Star
+                                                  }
+                else{
+
+                        Icons.Outlined.StarOutline
+
+                },
+                contentDescription =null
+             )
+        }
+    }
 }
 
 @Preview
