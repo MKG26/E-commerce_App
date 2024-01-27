@@ -37,6 +37,7 @@ fun EcoApp(
     ){
 
         val navController = rememberNavController()
+
     NavHost(
             navController = navController,
             startDestination = EcoScreen.Start.name,
@@ -53,8 +54,6 @@ fun EcoApp(
 
                     }
                 )
-
-
 
                 frontPage(
                     state = state,

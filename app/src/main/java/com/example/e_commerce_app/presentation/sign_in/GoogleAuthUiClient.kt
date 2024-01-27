@@ -7,7 +7,9 @@ import com.example.e_commerce_app.R
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.BeginSignInRequest.GoogleIdTokenRequestOptions
 import com.google.android.gms.auth.api.identity.SignInClient
+//import com.google.firebase.Firebase
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.auth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CancellationException
@@ -17,7 +19,7 @@ class GoogleAuthUiClient(
     private val context: Context,
     private val oneTapClient: SignInClient
 ) {
-    private val auth = Firebase.auth
+    private val auth = com.google.firebase.Firebase.auth
 
     suspend fun signIn(): IntentSender? {
         val result = try{

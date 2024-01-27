@@ -90,7 +90,6 @@ fun frontPage(
             modifier = Modifier
                 .padding(top = 200.dp)
                 .size(200.dp)
-
         )
 
         Text(
@@ -106,10 +105,7 @@ fun frontPage(
         CustomTextField(
             value = amountInput,
             onValueChange = {amountInput = it},
-            modifier = Modifier
-            ,
-
-
+            modifier = Modifier,
 
             label = R.string.mobile
 
@@ -129,8 +125,6 @@ fun frontPage(
 
         Row(
             modifier = Modifier
-
-
         ) {
             Image(
                 modifier = Modifier
@@ -171,16 +165,11 @@ fun frontPage(
                 .width(300.dp)
                 .height(53.dp)
 
-
-
-
         ) {
 
             Text(
                 text = stringResource(id = R.string.login),
                 style = MaterialTheme.typography.displaySmall
-
-
             )
 
 

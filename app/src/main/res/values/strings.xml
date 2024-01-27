@@ -26,4 +26,18 @@
     <string name="deal">Deals for you</string>
 
     <string name="web_client_id">431756030582-6rdphqfukgavuchq2n0qkl6uu829n8i6.apps.googleusercontent.com</string>
+
+
+    <string name="notebooks">Eco Friendly Notebooks</string>
+    <string name="setOfBooks">Set of %d</string>
+    <string name="booksQuantitiy">%d</string>
+    <string name="info1">%d pages , cardboard cover,</string>
+    <string name="info2">spiral binding</string>
+    <string name="totalRupees">Total:Rs %d</string>
+    <string name="buttonBuy">Buy</string>
+    <string name="thankYou">Thank you for choosing eco friendly products</string>
+    <string name="thankYou2">Help us make Earth a better planet to live on.</string>
+    <string name="afterThank">You will receive one notebook free</string>
+    <string name="afterThank2">with this purchase.</string>
+
 </resources>

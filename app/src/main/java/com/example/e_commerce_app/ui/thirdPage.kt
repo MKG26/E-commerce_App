@@ -126,8 +126,6 @@ fun thirdLayer(){
 
         }
 
-
-
     }
 }
 
@@ -282,8 +280,7 @@ fun GridList(gridList: List<Grid>, modifier: Modifier = Modifier){
 fun GridCard(grid: Grid, modifier: Modifier = Modifier){
 
     Card(modifier = modifier
-        .width(80.dp)
-        ,
+        .width(80.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFF8DD4FC)
         )
@@ -352,7 +349,6 @@ fun customTextField(
 
                 ){
 
-
                 Row(
                     modifier = Modifier,
 
@@ -383,11 +379,6 @@ fun customTextField(
                     )
                 }
 
-
-
-
-
-
             }
 
         }
@@ -396,14 +387,6 @@ fun customTextField(
     )
 
 }
-
-
-
-
-
-
-
-
 
 
 

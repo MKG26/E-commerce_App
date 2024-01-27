@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -27,9 +28,11 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.e_commerce_app.R
+import com.example.e_commerce_app.ui.theme.Ecommerce_AppTheme
 
 @Composable
 fun SecondPage(
@@ -113,15 +116,13 @@ fun SecondPage(
 fun MiddleSection(
     modifier: Modifier = Modifier,
 ){
-    var userName by rememberSaveable {
+    var userName by remember {
         mutableStateOf("")
     }
-
-    var mobileNumber by rememberSaveable {
+    var mobileNumber by remember {
         mutableStateOf("0")
     }
-
-    var password by rememberSaveable {
+    var password by remember {
         mutableStateOf("")
     }
 
@@ -152,6 +153,7 @@ fun MiddleSection(
 //                )
 
         ){
+
             Column {
                 Text(
                     text = stringResource(id = R.string.mobile_no),
@@ -167,7 +169,7 @@ fun MiddleSection(
 
                 OutlinedTextField(
                     value = mobileNumber,
-                    onValueChange = { } ,
+                    onValueChange = {mobileNumber = it} ,
                     modifier = Modifier
                         .padding(
                             top = dimensionResource(id = R.dimen.padding_medium),
@@ -191,7 +193,7 @@ fun MiddleSection(
 
                 TextField(
                     value = userName,
-                    onValueChange = { },
+                    onValueChange = {userName = it},
                     modifier = Modifier
                         .padding(
                             top = dimensionResource(id = R.dimen.padding_medium),
@@ -214,7 +216,7 @@ fun MiddleSection(
 
                 TextField(
                     value = password,
-                    onValueChange = { },
+                    onValueChange = {password = it},
                     modifier = Modifier
                         .padding(
                             top = dimensionResource(id = R.dimen.padding_medium),
@@ -273,4 +275,10 @@ private fun TextField(
 }
 
 
-
+@Preview
+@Composable
+fun ecoPreview1(){
+    Ecommerce_AppTheme{
+        SecondPage(onNextButtonClicked= {})
+    }
+}
