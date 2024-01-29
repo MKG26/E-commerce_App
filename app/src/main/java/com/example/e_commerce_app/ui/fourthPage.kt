@@ -122,6 +122,7 @@ fun fourthPage(
                     ){
                         rating_1 = it.toInt()
                     }
+
                 }
 
                 Row{
